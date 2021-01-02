@@ -12,7 +12,26 @@ class CategoriesController < ApplicationController
            p "jasdkfjadf"
        end
     end
+    
+    def destroy
+        category = Category.find(params[:id])
+        category.destroy
+        redirect_to root_path
+    end
+    
+    def edit
+        @category = Category.find(params[:id])
+    end
+    
+    def update
+        category = Category.find(params[:id])
+        if category.update(category_paramater)
+            redirect_to root_path
+        end
+    end
 end
+
+
 
 
 private

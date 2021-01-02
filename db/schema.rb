@@ -10,17 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20201231025824) do
+ActiveRecord::Schema.define(version: 20201231060616) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "todo_id"
+    t.index ["todo_id"], name: "index_categories_on_todo_id"
+  end
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer  "todo_id"
+    t.integer  "category_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "todos", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.text     "task"
+    t.integer  "category_id"
+    t.index ["category_id"], name: "index_todos_on_category_id"
   end
 
 end

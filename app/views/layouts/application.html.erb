@@ -9,6 +9,12 @@
   </head>
 
   <body>
+    <header>
+      <%= link_to "カテゴリー一覧" ,categories_path %>
+    </header>
     <%= yield %>
+       <%#= javascript_include_tag 'application' %>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
   </body>
 </html>

@@ -11,6 +11,9 @@
           <%# end %>
         <!--</li>-->
         <% if logged_in? %>
+        <div class = "user_name">
+          <%= current_user.name %>
+        </div>
           <%#= link_to "Users", '#' %>
           <!--<li>-->
           <%= link_to logout_path, method: :delete do %>

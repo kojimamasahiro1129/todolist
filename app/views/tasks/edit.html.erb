@@ -1,0 +1,5 @@
+<%= form_for [@category,@todo] ,url:category_task_path do |f| %>
+ <%= f.label :task, 'タスク名'%>
+ <%= f.text_field :task, class:'form-control form-size'%>
+ <%= f.submit '追加', class: 'btn btn-primary btn-block' %>
+<% end %>

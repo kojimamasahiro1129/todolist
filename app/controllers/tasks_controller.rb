@@ -20,6 +20,17 @@ class TasksController < ApplicationController
     end
     
     def edit 
+        @todo = Todo.find(params[:id])
+        # binding.pry
+        @category = Category.find(params[:category_id])
+    end
+    def update
+        todo = Todo.find(params[:id])
+        if todo.update(todo_paramater)
+            flash[:success] = "task edited!"
+            # binding.pry
+            redirect_to category_tasks_path
+        end
     end
     def destroy
         # binding.pry

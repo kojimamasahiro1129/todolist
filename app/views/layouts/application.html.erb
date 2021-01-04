@@ -6,12 +6,12 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css"> <!-- 追加 -->
+
   </head>
 
   <body>
-    <header>
-      <%= link_to "カテゴリー一覧" ,categories_path %>
-    </header>
+    <%= render 'layouts/header' %>
     <%= yield %>
        <%#= javascript_include_tag 'application' %>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>

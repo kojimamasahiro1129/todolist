@@ -15,3 +15,31 @@
 .form-size{
     font-size: 30px;
 }
+
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+}
+
+#logo:hover {
+  color: #fff;
+  text-decoration: none;
+}
+.header-color{
+    background-color:#00FF00;
+}
+.login-icon {
+    // margin-left: -27px;/
+    margin-left: -90px;
+}
+
+.home-icon {
+    margin-left: 700px;
+}
+

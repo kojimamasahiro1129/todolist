@@ -6,7 +6,7 @@
   <div class = "col-xs-3 col-xs-offset-4"> 
     <%= form_for @todo,url:category_tasks_path do |f| %>
      <%= f.label :task, 'タスク名'%>
-     <%= f.text_field :task, class:'form-control'%>
+     <%= f.text_field :task, class:'form-control form-size'%>
      <%= f.submit '追加', class: 'btn btn-primary btn-block' %>
     <% end %>
    

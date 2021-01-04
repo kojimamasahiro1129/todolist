@@ -3,16 +3,16 @@
   <div class = "col-xs-3 col-xs-offset-4"> 
     <%= form_for(@category ) do |f| %>
      <%= f.label :name, 'カテゴリー名'%>
-     <%= f.text_field :name, class:'form-control'%>
+     <%= f.text_field :name, class:'form-control form-size'%>
      <%= f.submit '追加', class: 'btn btn-primary btn-block' %>
     <% end %>
    
   </div>
   <div class =""></div>
   
-  <div class ="col-xs-9 space">
+  <div class ="col-xs-5 space">
     
-    <table border="1">
+    <table >
     <thead>
         <tr>
             
@@ -27,13 +27,20 @@
                     <div class ="content">
                         <%= check_box_tag :checkbox %>
                         <%= link_to category_tasks_path(category.id) do %>
-                        <%= category.name %>
+                          <%= category.name %>
                         <% end %>
                     </div>
                 </td>
-                <td><%= link_to "Edit",edit_category_path(category.id)%></td>
+                <td><%= link_to edit_category_path(category.id) do%>
+                 <i class="fas fa-edit"></i>
+                 <% end %>
+                </td>
                 
-                <td><%= link_to '消去', category_path(category.id), method: :delete %></td>
+                <td>
+                <%= link_to category_path(category.id), method: :delete do %>
+                    <i class="fas fa-trash-alt"></i>
+                <% end %>
+                </td>
                 
             </tr>
         <% end %>

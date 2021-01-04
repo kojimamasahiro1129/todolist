@@ -12,6 +12,7 @@ class TasksController < ApplicationController
         category = Category.find(params[:category_id])
         todo = category.todos.new(todo_paramater)
        if todo.save
+           flash[:success] = "task created!"
            redirect_to category_tasks_path
        else
            p "jasdkfjadf"
@@ -24,6 +25,7 @@ class TasksController < ApplicationController
         # binding.pry
         todo = Todo.find(params[:id])
         todo.destroy
+        flash[:success] = "task deleted!"
         redirect_to category_tasks_path
     end
 end

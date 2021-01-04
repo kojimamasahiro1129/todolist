@@ -6,12 +6,12 @@
     <!--<nav>-->
       <!--<ul class="nav navbar-nav navbar-right">-->
         <!--<li>-->
-          <%= link_to root_path do %>
-          <i class="fas fa-home home-icon"></i>
-          <% end %>
+          <%#= link_to root_path do %>
+          <!--# <i class="fas fa-home home-icon"></i>-->
+          <%# end %>
         <!--</li>-->
         <% if logged_in? %>
-          <%= link_to "Users", '#' %>
+          <%#= link_to "Users", '#' %>
           <!--<li>-->
           <%= link_to logout_path, method: :delete do %>
           <i class="fas fa-sign-out-alt"></i>
@@ -42,3 +42,5 @@
     <!--</nav>-->
   </div>
 </header>
+
+

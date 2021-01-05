@@ -16,7 +16,7 @@ class UsersController < ApplicationController
       flash[:success] = "Welcome to the Sample App!"
 
       # 保存の成功をここで扱う。
-      redirect_to @user
+      redirect_to categories_path
     else
       render 'new'
     end

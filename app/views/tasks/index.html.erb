@@ -36,10 +36,11 @@
                     <!--<div id="text" onclick="changeStyle();">-->
                     <!--<p >ここをクリックすると取り消し線が引かれたり消えたりする。</p>-->
                     <div class ="content">
-                    <%= check_box_tag :checkbox %>
+                    <%#= check_box_tag :checkbox %>
+                    <input type="checkbox" id=<%= todo.id %>><%= todo.task %><br>
+
                     <%#= label_tag :checkbox,   todo.task %>
-                    
-                         <%= todo.task %>
+                         
                      </div>
                     <!--</div>-->
                         <%#= binding.pry %>
@@ -79,4 +80,84 @@
 
 });
 </script>
+
+
+<script>
+window.addEventListener('load', function() {
+    // var c = []
+    var checkbox_array = '<%== JSON.dump(@checkbox_array) %>';
+    console.log(checkbox_array);
+    // [checkbox_array].filter(element => console.log(element[0]) );
+    // console.log(c);
+    // console.log(c);
+    console.log(document.getElementById(checkbox_array));
+    var c = [
+        document.getElementById("c1"),
+        document.getElementById('33'),
+        document.getElementById("32")
+    ];
+    var chklist;
+    if (document.cookie) {
+        chklist = document.cookie.split(",");
+    };
+    c.forEach(function(ci, i) {
+        if (chklist && chklist[i] === 'true') ci.checked = true;
+        ci.addEventListener('click', function() {
+            var x = [];
+            c.forEach(function(cj) {
+                x.push(cj.checked);
+            });
+
+            var expire = new Date();
+            expire.setTime(expire.getTime() + 1000 * 3600 * 24);
+            document.cookie = x.join(',') + ',; expires=' + expire.toUTCString();
+        });
+    });
+    
+});
+</script>
+
+<input type="checkbox" id="c1">テキスト1<br>
+<input type="checkbox" id="c2">テキスト2<br>
+<input type="checkbox" id="c3">テキスト3
+
+
+
+// <script>
+// window.addEventListener('load', function() {
+//         var c = []
+//     var checkbox_array = '<%#== JSON.dump(@checkbox_array) %>';
+//     [checkbox_array].filter(element =>c.push(document.getElementById(element.to_s)) );
+    
+//     // var c = [
+//     //     document.getElementById('c1'),
+//     //     document.getElementById('c2'),
+//     //     document.getElementById('c3')
+//     // ];
+//     var chklist;
+//     if (document.cookie) {
+//         chklist = document.cookie.split(",");
+//     };
+//     c.forEach(function(ci, i) {
+//         if (chklist && chklist[i] === 'true') ci.checked = true;
+//         ci.addEventListener('click', function() {
+//             var x = [];
+//             c.forEach(function(cj) {
+//                 x.push(cj.checked);
+//             });
+
+//             var expire = new Date();
+//             expire.setTime(expire.getTime() + 1000 * 3600 * 24);
+//             document.cookie = x.join(',') + ',; expires=' + expire.toUTCString();
+//         });
+//     });
+    
+// });
+// </script>
+
+<!--<input type="checkbox" id="c1">テキスト1<br>-->
+<!--<input type="checkbox" id="c2">テキスト2<br>-->
+<!--<input type="checkbox" id="c3">テキスト3-->
+<br>
+
 

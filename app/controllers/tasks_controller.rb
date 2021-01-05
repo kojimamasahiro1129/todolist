@@ -4,6 +4,11 @@ class TasksController < ApplicationController
         category = Category.find(params[:category_id])
         @todo = category.todos.new
         @todos = Todo.where(category_id: category.id) 
+        @checkbox_array = []
+        @todos.each do |todo|
+            @checkbox_array << todo.id
+        end
+        
         # binding.pry
     end
     

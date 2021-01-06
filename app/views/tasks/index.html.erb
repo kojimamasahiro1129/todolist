@@ -7,6 +7,7 @@
     <%= form_for @todo,url:category_tasks_path do |f| %>
      <%= f.label :task, 'タスク名'%>
      <%= f.text_field :task, class:'form-control form-size'%>
+     <%#= f.check_box :task %>
      <%= f.submit '追加', class: 'btn btn-primary btn-block' %>
     <% end %>
    
@@ -82,48 +83,48 @@
 </script>
 
 
-<script>
-window.addEventListener('load', function() {
-    // var c = []
-    var checkbox_array = '<%== JSON.dump(@checkbox_array) %>';
-    console.log(checkbox_array);
-    // [checkbox_array].filter(element => console.log(element[0]) );
-    // console.log(c);
-    // console.log(c);
-    console.log(document.getElementById(checkbox_array));
-    var c = [
-        document.getElementById("c1"),
-        document.getElementById('33'),
-        document.getElementById("32")
-    ];
-    var chklist;
-    if (document.cookie) {
-        chklist = document.cookie.split(",");
-    };
-    c.forEach(function(ci, i) {
-        if (chklist && chklist[i] === 'true') ci.checked = true;
-        ci.addEventListener('click', function() {
-            var x = [];
-            c.forEach(function(cj) {
-                x.push(cj.checked);
-            });
+<!--<script>-->
+<!--window.addEventListener('load', function() {-->
+<!--    // var c = []-->
+<!--    var checkbox_array = '<%#== JSON.dump(@checkbox_array) %>';-->
+<!--    console.log(checkbox_array);-->
+<!--    // [checkbox_array].filter(element => console.log(element[0]) );-->
+<!--    // console.log(c);-->
+<!--    // console.log(c);-->
+<!--    console.log(document.getElementById(checkbox_array));-->
+<!--    var c = [-->
+<!--        document.getElementById("c1"),-->
+<!--        document.getElementById('33'),-->
+<!--        document.getElementById("32")-->
+<!--    ];-->
+<!--    var chklist;-->
+<!--    if (document.cookie) {-->
+<!--        chklist = document.cookie.split(",");-->
+<!--    };-->
+<!--    c.forEach(function(ci, i) {-->
+<!--        if (chklist && chklist[i] === 'true') ci.checked = true;-->
+<!--        ci.addEventListener('click', function() {-->
+<!--            var x = [];-->
+<!--            c.forEach(function(cj) {-->
+<!--                x.push(cj.checked);-->
+<!--            });-->
 
-            var expire = new Date();
-            expire.setTime(expire.getTime() + 1000 * 3600 * 24);
-            document.cookie = x.join(',') + ',; expires=' + expire.toUTCString();
-        });
-    });
+<!--            var expire = new Date();-->
+<!--            expire.setTime(expire.getTime() + 1000 * 3600 * 24);-->
+<!--            document.cookie = x.join(',') + ',; expires=' + expire.toUTCString();-->
+<!--        });-->
+<!--    });-->
     
-});
-</script>
+<!--});-->
+<!--</script>-->
 
-<input type="checkbox" id="c1">テキスト1<br>
-<input type="checkbox" id="c2">テキスト2<br>
-<input type="checkbox" id="c3">テキスト3
+<!--<input type="checkbox" id="c1">テキスト1<br>-->
+<!--<input type="checkbox" id="c2">テキスト2<br>-->
+<!--<input type="checkbox" id="c3">テキスト3-->
 
 
 
-// <script>
+ <script>
 // window.addEventListener('load', function() {
 //         var c = []
 //     var checkbox_array = '<%#== JSON.dump(@checkbox_array) %>';
@@ -159,5 +160,4 @@ window.addEventListener('load', function() {
 <!--<input type="checkbox" id="c2">テキスト2<br>-->
 <!--<input type="checkbox" id="c3">テキスト3-->
 <br>
-
 

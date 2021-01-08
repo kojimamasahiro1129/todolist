@@ -16,8 +16,9 @@ ActiveRecord::Schema.define(version: 20210108100137) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "todo_id"
     t.integer  "user_id"
-    t.boolean  "private"
+    t.index ["todo_id"], name: "index_categories_on_todo_id"
     t.index ["user_id"], name: "index_categories_on_user_id"
   end
 
@@ -44,7 +45,6 @@ ActiveRecord::Schema.define(version: 20210108100137) do
     t.string   "remember_digest"
     t.string   "password_digest"
     t.string   "password"
-    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
 end
